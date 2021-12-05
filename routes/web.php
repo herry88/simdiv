@@ -25,6 +25,10 @@ Route::get('hello', function () {
 //rute category
 Route::resource('category', App\Http\Controllers\CategoryController::class);
 
+//rute tahun akademik
+Route::resource('tahunakademik',App\Http\Controllers\TahunAkademikController::class);
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
