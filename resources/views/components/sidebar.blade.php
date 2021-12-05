@@ -17,7 +17,7 @@
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Data Master</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="#">Data Category</a></li>
+                    <li><a class="nav-link" href="{{ route('category.index') }}">Data Category</a></li>
                     <li><a class="nav-link" href="#">Data Tahun Akademik</a></li>
                     <li><a class="nav-link" href="#">Data Dosen</a></li>
                     <li><a class="nav-link" href="#">Data Staff</a></li>
