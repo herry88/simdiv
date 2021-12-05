@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\TahunAkademik;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class CategoryController extends Controller
+class TahunAkademikController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        // $category = Category::all();
-        $category = DB::table('categories')->get();
-        return view('modul.category.index', compact('category'));
+        //
     }
 
     /**
@@ -39,25 +36,15 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
-        $angka1 = $request->input('angka_1');
-        $angka2 = $request->input('angka_2');
-        $operator = $request->input('operator');
-        if ($operator == "jumlah") {
-            // penjumlahan
-            $output = $angka1 + $angka2;
-        } else {
-            $output = $angka1 - $angka2;
-        }
-        echo $output;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\TahunAkademik  $tahunAkademik
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(TahunAkademik $tahunAkademik)
     {
         //
     }
@@ -65,10 +52,10 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\TahunAkademik  $tahunAkademik
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(TahunAkademik $tahunAkademik)
     {
         //
     }
@@ -77,10 +64,10 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\TahunAkademik  $tahunAkademik
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, TahunAkademik $tahunAkademik)
     {
         //
     }
@@ -88,10 +75,10 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\TahunAkademik  $tahunAkademik
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(TahunAkademik $tahunAkademik)
     {
         //
     }
