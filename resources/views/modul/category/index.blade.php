@@ -8,7 +8,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <p>ini add</p>
+                    <a href="#" class="btn btn-primary">Add Page</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered">
