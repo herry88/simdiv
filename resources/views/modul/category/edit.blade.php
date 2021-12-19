@@ -1,34 +1,36 @@
 @extends('master')
 
 @section('title')
-    <title>Create Category</title>
+    <title>Edit Category</title>
 @endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Create Category</h1>
+            <h1>Edit Category</h1>
         </div>
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h2>Halaman Create Page</h2>
+                    <h2>Edit Page</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('category.store') }}" method="post">
+                    <form action="{{ route('category.update', $category->id) }}" method="post">
                         @csrf
-                        @method('POST')
+                        @method('PUT')
                         <table class="table table-bordered">
                             <tr>
                                 <td>Nama</td>
                                 <td>
-                                    <input class="form-control" type="text" name="name_category">
+                                    <input class="form-control" type="text" name="name_category"
+                                        value="{{ $category->name }}">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Description</td>
                                 <td>
-                                    <input class="form-control" type="text" name="description">
+                                    <input class="form-control" type="text" value="{{ $category->description }}"
+                                        name="description">
                                 </td>
                             </tr>
                             <tr>
