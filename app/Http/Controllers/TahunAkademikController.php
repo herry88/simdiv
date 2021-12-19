@@ -15,6 +15,8 @@ class TahunAkademikController extends Controller
     public function index()
     {
         //
+        $tahunAkademik = TahunAkademik::all();
+        return view('modul.tahunakademik.index', compact('tahunAkademik'));
     }
 
     /**
@@ -25,6 +27,7 @@ class TahunAkademikController extends Controller
     public function create()
     {
         //
+        return view('modul.tahunakademik.create');
     }
 
     /**
@@ -36,6 +39,11 @@ class TahunAkademikController extends Controller
     public function store(Request $request)
     {
         //
+        $tahunAkademik = new TahunAkademik();
+        $tahunAkademik->nama_tahunakademik = $request->input('namatahunakademik');
+        $tahunAkademik->keterangan = $request->input('keterangan');
+        $tahunAkademik->save();
+        return redirect()->route('tahunakademik.index');
     }
 
     /**
@@ -55,9 +63,11 @@ class TahunAkademikController extends Controller
      * @param  \App\Models\TahunAkademik  $tahunAkademik
      * @return \Illuminate\Http\Response
      */
-    public function edit(TahunAkademik $tahunAkademik)
+    public function edit($id)
     {
-        //
+        //passing data ke form edit
+        $tahunAkademik = TahunAkademik::find($id);
+        return view('modul.tahunakademik.edit', compact('tahunAkademik'));
     }
 
     /**
