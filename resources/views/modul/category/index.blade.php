@@ -1,5 +1,9 @@
 @extends('master')
 
+@section('title')
+    <title>Index Category</title>
+@endsection
+
 @section('content')
     <section class="section">
         <div class="section-header">
@@ -8,7 +12,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="#" class="btn btn-primary">Add Page</a>
+                    <a href="{{ route('category.create') }}" class="btn btn-primary">Add Page</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered">
@@ -16,6 +20,7 @@
                             <tr>
                                 <th>NO</th>
                                 <th>Nama Category</th>
+                                <th>Tools</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -23,6 +28,15 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $ct->name }}</td>
+                                    <td>
+                                        <a href="{{ route('category.edit', $ct->id) }}"
+                                            class="btn btn-warning btn-outline-warning">Edit</a>
+                                        <form action="{{ route('category.destroy', $ct->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @empty
                                 <tr>

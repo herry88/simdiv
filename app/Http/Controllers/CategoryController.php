@@ -28,6 +28,7 @@ class CategoryController extends Controller
     public function create()
     {
         //
+        return view('modul.category.create');
     }
 
     /**
@@ -38,17 +39,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $angka1 = $request->input('angka_1');
-        $angka2 = $request->input('angka_2');
-        $operator = $request->input('operator');
-        if ($operator == "jumlah") {
-            // penjumlahan
-            $output = $angka1 + $angka2;
-        } else {
-            $output = $angka1 - $angka2;
-        }
-        echo $output;
+        //deklarasi form
+        $category = new Category();
+        $category->name = $request->input('name_category');
+        $category->description = $request->input('description');
+
+        //function save
+        $category->save();
+        //redirect / mengarahkan ke index
+        return redirect()->route('category.index');
     }
 
     /**
@@ -68,9 +67,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
         //
+        $category = Category::find($id);
+        return view('modul.category.edit', compact('category'));
     }
 
     /**
@@ -80,9 +81,15 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        //deklarasi form
+        $category = Category::find($id);
+        $category->name = $request->input('name_category');
+        $category->description = $request->input('description');
+        //function update
+        $category->save();
+        return redirect()->route('category.index');
     }
 
     /**
@@ -91,8 +98,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
         //
+        $category = Category::find($id);
+        $category->delete();
+        return redirect()->route('category.index');
     }
 }
