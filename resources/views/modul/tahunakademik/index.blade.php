@@ -31,7 +31,13 @@
                                     <td>{{ $ta->nama_tahunakademik }}</td>
                                     <td>{{ $ta->keterangan }}</td>
                                     <td><a href="{{ route('tahunakademik.edit', $ta->id) }}" class="btn btn-warning"><i
-                                                class="fas fa-edit"></i></a></td>
+                                                class="fas fa-edit"></i></a>
+                                        <form action="{{ route('tahunakademik.destroy', $ta->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
