@@ -77,9 +77,13 @@ class TahunAkademikController extends Controller
      * @param  \App\Models\TahunAkademik  $tahunAkademik
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TahunAkademik $tahunAkademik)
+    public function update(Request $request, $id)
     {
-        //
+        $tahunAkademik = TahunAkademik::find($id);
+        $tahunAkademik->nama_tahunakademik = $request->input('namatahunakademik');
+        $tahunAkademik->keterangan = $request->input('keterangan');
+        $tahunAkademik->save();
+        return redirect()->route('tahunakademik.index');
     }
 
     /**

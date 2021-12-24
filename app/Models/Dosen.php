@@ -5,9 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TahunAkademik extends Model
+class Dosen extends Model
 {
     use HasFactory;
-    protected $table = 'tahun_akademiks';
-    protected $fillable = ['nama_tahunakademik', 'keterangan'];
 }
