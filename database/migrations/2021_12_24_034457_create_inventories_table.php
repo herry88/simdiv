@@ -15,6 +15,15 @@ class CreateInventoriesTable extends Migration
     {
         Schema::create('inventories', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_barang');
+            $table->string('kondisi');
+            $table->bigInteger('dosen_id')->unsigned();
+            $table->bigInteger('tahunakademik_id')->unsigned();
+            $table->foreign('dosen_id')->references('id')
+                  ->on('dosens')->onDelete('cascade');
+            $table->foreign('tahunakademik_id')
+                  ->references('id')
+                  ->on('tahun_akademiks')->onDelete('cascade');
             $table->timestamps();
         });
     }
